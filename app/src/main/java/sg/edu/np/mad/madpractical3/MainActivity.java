@@ -35,6 +35,17 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        Intent recieveIntent = getIntent();
+        String key = recieveIntent.getStringExtra("Key");
+        User user = new User("MAD", "MAD Developer",1,false);
+
+        user.name = user.name + " " + key;
+        TextView title = findViewById(R.id.title);
+        TextView description = findViewById(R.id.text);
+
+        title.setText(user.name);
+        description.setText(user.description);
+
         btnFollowed = findViewById(R.id.followButton);
         btnFollowed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +65,3 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-//        Boolean followed = false;
-//
-//            };
-//    };
